@@ -2,13 +2,13 @@ from distutils.core import setup
 setup(
   name = 'helli2',         # How you named your package folder (MyLib)
   packages = ['helli2'],   # Chose the same as "name"
-  version = '0.1',      # Start with a small number and increase it with every change you make
+  version = '0.1.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Helli2 School Python Package',   # Give a short description about your library
   author = 'Saleh v',                   # Type in your name
   author_email = 'salehv@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/Salehv/helli2',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/Salehv/helli2/archive/0.1.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/Salehv/helli2/archive/0.1.1.tar.gz',    # I explain this later on
   keywords = ['helli2', 'school work'],   # Keywords that define your package best
   install_requires = [],
   classifiers=[
