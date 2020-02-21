@@ -8,7 +8,7 @@ setup(
   author = 'Saleh v',                   # Type in your name
   author_email = 'salehv@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/Salehv/helli2',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/Salehv/helli2/archive/0.1.2.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/Salehv/helli2/archive/0.1.3.tar.gz',    # I explain this later on
   keywords = ['helli2', 'school work'],   # Keywords that define your package best
   install_requires = ['pypng'],
   classifiers=[
