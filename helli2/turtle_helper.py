@@ -1,4 +1,5 @@
 import turtle as t
+import png
 
 def islamic_draw(repeat, rotation, pencolor, fillcolor, function, *args):
     t.speed(1)
@@ -15,6 +16,21 @@ def islamic_draw(repeat, rotation, pencolor, fillcolor, function, *args):
     t.up()
     t.home()
     t.down()
+
+def create_image(width, height, pixels, name="Untitled"):
+    img = []
+    for i in range(height):
+        row = []
+        for j in range(width):
+            row.append(pixels[i][j][0])
+            row.append(pixels[i][j][1])
+            row.append(pixels[i][j][2])
+        img.append(row)
+    with open(name + ".png", mode='wb') as f:    
+        w = png.Writer(width, height, greyscale=False)
+        w.write(f, img)
+        print("Image Created!")
+            
 
 
 
