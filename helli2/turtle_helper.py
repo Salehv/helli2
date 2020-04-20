@@ -32,9 +32,36 @@ def create_image(width, height, pixels, name="Untitled"):
         print("Image Created!")
             
 
-
-
-
+def fullscreen():
+    scr = t.getscreen()
+    scr.cv.master.wm_attributes('-fullscreen','true')
+    t.onkey(_exit, "Escape")
     
- 
-
+def _exit():
+    t.bye()
+    quit()
+    
+    
+def create_button(x, y, func, *args, **kwargs):
+    tur = t.Turtle()
+    tur.up()
+    tur.goto(x, y)
+    tur.shape("square")
+    
+    width = 20
+    if("width" in kwargs.keys()):
+        width = kwargs["width"]
+    
+    height = 20    
+    if("height" in kwargs.keys()):
+        height = kwargs["height"]
+        
+    tur.shapesize(height / 20.0, width / 20.0)
+    
+    if("color" in kwargs.keys()):
+        tur.color(kwargs["color"])
+    
+    def func_wrapper(x, y):
+        func(*args)
+        
+    tur.onclick(func_wrapper)
