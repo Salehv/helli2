@@ -1,5 +1,7 @@
 import turtle as t
 import png
+from PIL import Image
+
 
 def islamic_draw(repeat, rotation, pencolor, fillcolor, function, *args):
     t.speed(1)
@@ -16,6 +18,7 @@ def islamic_draw(repeat, rotation, pencolor, fillcolor, function, *args):
     t.up()
     t.home()
     t.down()
+
 
 def create_image(width, height, pixels, name="Untitled"):
     img = []
@@ -34,9 +37,10 @@ def create_image(width, height, pixels, name="Untitled"):
 
 def fullscreen():
     scr = t.getscreen()
-    scr.cv.master.wm_attributes('-fullscreen','true')
+    scr.cv.master.wm_attributes('-fullscreen', 'true')
     t.onkey(_exit, "Escape")
-    
+
+
 def _exit():
     t.bye()
     quit()
@@ -44,6 +48,7 @@ def _exit():
     
 def create_button(x, y, func, *args, **kwargs):
     tur = t.Turtle()
+    t.tracer(0)
     tur.up()
     tur.goto(x, y)
     tur.shape("square")
@@ -61,7 +66,18 @@ def create_button(x, y, func, *args, **kwargs):
     if("color" in kwargs.keys()):
         tur.color(kwargs["color"])
     
-    def func_wrapper(x, y):
+    def func_wrapper(x0, y0):
         func(*args)
         
     tur.onclick(func_wrapper)
+    t.update()
+    t.tracer(1)
+
+
+def create_gif_image(width, height, pixels, name="Untitled"):
+    img = Image.new('RGB', (width, height), (255, 255, 255))
+    pixmap = img.load()
+    for col in range(img.width):
+        for row in range(img.height):
+            pixmap[col, row] = pixels[col][row]
+    img.save(name + ".gif", "gif")
